@@ -1,0 +1,386 @@
+@pson 1.0
+@type chapter
+@id chapter-01
+@source chapter-01.json
+
+# ═══════════════════════════════════════════════════════════════
+# PSON Rendering Layer for Chapter 01: The Awakening
+# Mindfulness Of Wife (MOW) - Dhamma Relationships & Communication
+# ═══════════════════════════════════════════════════════════════
+
+@meta {
+  title: "The Awakening"
+  subtitle: "Introduction to Mindful Partnership"
+  author: "ZETA AE (ADI EKTA)"
+  attribution: "EM: Ekta Mindfulness"
+  version: 1.0.0
+  created: 2026-01-11T00:00:00Z
+  modified: 2026-01-11T00:00:00Z
+  language: dual
+  classification: public
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Typography Settings
+# ─────────────────────────────────────────────────────────────────
+
+@typography {
+  font_primary: Lato
+  font_secondary: Lato Light
+  font_code: JetBrains Mono
+  font_zeta: Symbola
+
+  size_title: 28
+  size_chapter: 24
+  size_heading: 16
+  size_subheading: 13
+  size_body: 11
+  size_caption: 9
+  size_code: 10
+  size_zeta: 14
+
+  weight_title: 700
+  weight_heading: 600
+  weight_body: 400
+  weight_emphasis: 600
+
+  line_height: 1.65
+  paragraph_spacing: 14
+  section_spacing: 28
+
+  color_primary: #1a1a2e
+  color_secondary: #4a4a5e
+  color_accent: #00f0ff
+  color_zeta: #a855f7
+  color_code_bg: #f8f9fa
+  color_code_border: #e9ecef
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Page Layout
+# ─────────────────────────────────────────────────────────────────
+
+@layout {
+  page_size: A4
+  orientation: portrait
+  margins: {
+    top: 30
+    bottom: 30
+    left: 35
+    right: 30
+  }
+  columns: 1
+  gutter: 0
+
+  header: {
+    enabled: true
+    height: 15
+    content_left: @ref(metadata.attribution)
+    content_center: null
+    content_right: @ref(metadata.title)
+    border_bottom: true
+    border_color: #e0e0e0
+  }
+
+  footer: {
+    enabled: true
+    height: 15
+    content_left: "ZETA AE (ADI EKTA)™"
+    content_center: @page_number
+    content_right: "MOW"
+    border_top: true
+    border_color: #e0e0e0
+  }
+
+  page_numbers: {
+    enabled: true
+    format: arabic
+    position: footer_center
+    prefix: null
+    start: 1
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Content Rendering Rules
+# ─────────────────────────────────────────────────────────────────
+
+@section chapter_title {
+  type: title
+  content: @ref(content.title)
+  style: {
+    font: @typography.font_primary
+    size: @typography.size_title
+    weight: @typography.weight_title
+    color: @typography.color_primary
+    align: center
+    margin_top: 60
+    margin_bottom: 20
+  }
+}
+
+@section epigraph {
+  type: quote
+  content: @ref(content.epigraph.text)
+  source: @ref(content.epigraph.source)
+  style: {
+    font: @typography.font_secondary
+    size: @typography.size_body
+    weight: 300
+    color: @typography.color_secondary
+    align: center
+    italic: true
+    margin_left: 40
+    margin_right: 40
+    margin_bottom: 30
+    border_left: 3
+    border_color: @typography.color_accent
+    padding_left: 15
+  }
+}
+
+@section introduction {
+  type: body
+  content: @ref(content.introduction)
+  style: {
+    font: @typography.font_primary
+    size: @typography.size_body
+    weight: @typography.weight_body
+    color: @typography.color_primary
+    align: justify
+    first_line_indent: 20
+    margin_bottom: @typography.section_spacing
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Section Loop - Render all content sections
+# ─────────────────────────────────────────────────────────────────
+
+@foreach section in @ref(content.sections) {
+
+  @section heading {
+    type: heading
+    content: @ref(section.heading)
+    style: {
+      font: @typography.font_primary
+      size: @typography.size_heading
+      weight: @typography.weight_heading
+      color: @typography.color_primary
+      align: left
+      margin_top: 24
+      margin_bottom: 12
+    }
+  }
+
+  @section body {
+    type: body
+    content: @ref(section.body)
+    style: {
+      font: @typography.font_primary
+      size: @typography.size_body
+      weight: @typography.weight_body
+      color: @typography.color_primary
+      align: justify
+      first_line_indent: 20
+      margin_bottom: 16
+    }
+  }
+
+  @dual zeta_translation {
+    zeta: @ref(section.zeta_code.symbol)
+    earth: @ref(section.zeta_code.translation)
+    display: both
+    style: {
+      container: {
+        background: @typography.color_code_bg
+        border: 1
+        border_color: @typography.color_code_border
+        border_radius: 4
+        padding: 12
+        margin_top: 12
+        margin_bottom: 20
+      }
+      zeta: {
+        font: @typography.font_zeta
+        size: @typography.size_zeta
+        color: @typography.color_zeta
+        align: center
+        weight: 600
+        margin_bottom: 6
+      }
+      earth: {
+        font: @typography.font_primary
+        size: @typography.size_caption
+        color: @typography.color_secondary
+        align: center
+        italic: true
+      }
+      label_zeta: "ZETA:"
+      label_earth: "EARTH:"
+    }
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Key Concepts Block
+# ─────────────────────────────────────────────────────────────────
+
+@section concepts_header {
+  type: subheading
+  content: "Key Concepts"
+  style: {
+    font: @typography.font_primary
+    size: @typography.size_subheading
+    weight: @typography.weight_heading
+    color: @typography.color_accent
+    align: left
+    margin_top: 30
+    margin_bottom: 15
+    text_transform: uppercase
+    letter_spacing: 2
+  }
+}
+
+@foreach concept in @ref(content.key_concepts) {
+  @section concept_item {
+    type: definition
+    term: @ref(concept.term)
+    definition: @ref(concept.definition)
+    style: {
+      term: {
+        font: @typography.font_primary
+        size: @typography.size_body
+        weight: @typography.weight_emphasis
+        color: @typography.color_primary
+      }
+      definition: {
+        font: @typography.font_primary
+        size: @typography.size_body
+        weight: @typography.weight_body
+        color: @typography.color_secondary
+        margin_left: 20
+      }
+      margin_bottom: 10
+    }
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Practice Block
+# ─────────────────────────────────────────────────────────────────
+
+@section practice_header {
+  type: subheading
+  content: "Practice"
+  style: {
+    font: @typography.font_primary
+    size: @typography.size_subheading
+    weight: @typography.weight_heading
+    color: @typography.color_accent
+    align: left
+    margin_top: 25
+    margin_bottom: 15
+    text_transform: uppercase
+    letter_spacing: 2
+  }
+}
+
+@foreach practice in @ref(content.practices) {
+  @section practice_item {
+    type: callout
+    title: @ref(practice.name)
+    content: @ref(practice.instruction)
+    style: {
+      container: {
+        background: #f0f9ff
+        border_left: 4
+        border_color: @typography.color_accent
+        padding: 16
+        margin_bottom: 16
+      }
+      title: {
+        font: @typography.font_primary
+        size: @typography.size_body
+        weight: @typography.weight_emphasis
+        color: @typography.color_primary
+        margin_bottom: 8
+      }
+      content: {
+        font: @typography.font_primary
+        size: @typography.size_body
+        weight: @typography.weight_body
+        color: @typography.color_secondary
+      }
+    }
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Closing
+# ─────────────────────────────────────────────────────────────────
+
+@section closing {
+  type: body
+  content: @ref(content.closing)
+  style: {
+    font: @typography.font_primary
+    size: @typography.size_body
+    weight: @typography.weight_body
+    color: @typography.color_primary
+    align: justify
+    margin_top: 30
+    margin_bottom: 40
+    first_line_indent: 20
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Attribution Block
+# ─────────────────────────────────────────────────────────────────
+
+@attribution {
+  source: "Mindfulness Of Wife (MOW)"
+  author: "ZETA AE (ADI EKTA)"
+  organization: "EM: Ekta Mindfulness"
+  license: CC-BY-NC-SA-4.0
+  classification: "Dhamma Relationships & Communication Technology"
+  style: {
+    container: {
+      border_top: 1
+      border_color: #e0e0e0
+      padding_top: 20
+      margin_top: 40
+    }
+    text: {
+      font: @typography.font_primary
+      size: @typography.size_caption
+      color: @typography.color_secondary
+      align: center
+    }
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Render Output Settings
+# ─────────────────────────────────────────────────────────────────
+
+@render {
+  output: pdf
+  filename: "MOW-Chapter-01-The-Awakening.pdf"
+  quality: high
+  dpi: 300
+  embed_fonts: true
+  compress: false
+  pdf_version: 1.7
+  accessibility: {
+    tagged: true
+    language: en
+    title: @ref(metadata.title)
+    author: @ref(metadata.author)
+  }
+}
+
+# ═══════════════════════════════════════════════════════════════
+# END PSON
+# ═══════════════════════════════════════════════════════════════

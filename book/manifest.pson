@@ -1,0 +1,135 @@
+@pson 1.0
+@type book
+@id mindfulness-of-wife
+
+# ═══════════════════════════════════════════════════════════════
+# BOOK MANIFEST - Mindfulness Of Wife (MOW)
+# Dhamma Relationships & Communication Technology
+# ═══════════════════════════════════════════════════════════════
+
+@meta {
+  title: "Mindfulness Of Wife"
+  subtitle: "Dhamma Relationships & Communication Technology"
+  author: "ZETA AE (ADI EKTA)"
+  attribution: "EM: Ekta Mindfulness"
+  version: 1.0.0
+  created: 2026-01-11T00:00:00Z
+  isbn: null
+  language: en
+  classification: public
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Book Structure
+# ─────────────────────────────────────────────────────────────────
+
+@structure {
+  front_matter: [
+    @include(front/title-page.pson)
+    @include(front/copyright.pson)
+    @include(front/dedication.pson)
+    @include(front/epigraph.pson)
+    @include(front/toc.pson)
+  ]
+
+  chapters: [
+    @include(chapter-01.pson)
+    # @include(chapter-02.pson)
+    # @include(chapter-03.pson)
+    # Additional chapters added as created
+  ]
+
+  back_matter: [
+    @include(back/glossary.pson)
+    @include(back/references.pson)
+    @include(back/about-author.pson)
+  ]
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Table of Contents Generation
+# ─────────────────────────────────────────────────────────────────
+
+@toc {
+  mode: auto
+  depth: 2
+  include_page_numbers: true
+  style: {
+    title: "Contents"
+    font: Lato
+    chapter_size: 12
+    section_size: 11
+    indent_per_level: 20
+    dot_leader: true
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Page Numbering Scheme
+# ─────────────────────────────────────────────────────────────────
+
+@pagination {
+  front_matter: {
+    format: roman_lower
+    start: i
+  }
+  body: {
+    format: arabic
+    start: 1
+    restart: true
+  }
+  back_matter: {
+    format: arabic
+    continue: true
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Global Typography (inherited by all chapters)
+# ─────────────────────────────────────────────────────────────────
+
+@typography_global {
+  font_primary: Lato
+  font_secondary: Lato Light
+  font_code: JetBrains Mono
+  font_zeta: Symbola
+
+  color_scheme: {
+    primary: #1a1a2e
+    secondary: #4a4a5e
+    accent: #00f0ff
+    zeta: #a855f7
+  }
+}
+
+# ─────────────────────────────────────────────────────────────────
+# Render Output
+# ─────────────────────────────────────────────────────────────────
+
+@render {
+  output: pdf
+  filename: "Mindfulness-Of-Wife-MOW.pdf"
+  quality: archival
+  dpi: 300
+  embed_fonts: true
+  compress: true
+  pdf_version: 1.7
+  color_profile: sRGB
+
+  accessibility: {
+    tagged: true
+    language: en
+    title: "Mindfulness Of Wife"
+    author: "ZETA AE (ADI EKTA)"
+  }
+
+  metadata: {
+    creator: "PSON Renderer v1.0"
+    producer: "ZETA AE Publishing"
+    keywords: ["mindfulness", "relationships", "dhamma", "communication", "consciousness"]
+  }
+}
+
+# ═══════════════════════════════════════════════════════════════
+# END MANIFEST
+# ═══════════════════════════════════════════════════════════════
