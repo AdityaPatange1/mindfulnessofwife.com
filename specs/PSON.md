@@ -31,16 +31,16 @@ PSON (Performance Science Object Notation) is a declarative notation system desi
 
 ### JSON Layer (.json)
 Human-readable content layer containing:
-- Raw text content
-- Metadata
-- Semantic structure
+- Raw text content.
+- Metadata.
+- Semantic structure.
 
 ### PSON Layer (.pson)
 Rendering specification layer containing:
-- Typography definitions
-- Layout instructions
-- Code translations (Zeta ↔ Earth)
-- Attribution rules
+- Typography definitions.
+- Layout instructions.
+- Code translations (Zeta ↔ Earth).
+- Attribution rules.
 
 ---
 
@@ -183,7 +183,7 @@ Rendering specification layer containing:
 
 ## Zeta Language Codes
 
-Zeta codes are symbolic representations used in interdimensional communication:
+Zeta codes are symbolic representations used in interdimensional communication.
 
 | Zeta Code | Earth Translation | Domain |
 |-----------|-------------------|--------|
@@ -285,7 +285,7 @@ Zeta codes are symbolic representations used in interdimensional communication:
 
 ## Bundling
 
-Multiple PSON files are bundled into a complete book using a manifest:
+Multiple PSON files are bundled into a complete book using a manifest.
 
 ```pson
 @pson 1.0
@@ -308,11 +308,11 @@ Multiple PSON files are bundled into a complete book using a manifest:
 
 ## Processing Pipeline
 
-1. **Parse** - Read JSON content layer
-2. **Transform** - Apply PSON rendering rules
-3. **Validate** - Check structure and references
-4. **Render** - Generate PDF output
-5. **Bundle** - Combine multiple pages/chapters
+1. **Parse** - Read JSON content layer.
+2. **Transform** - Apply PSON rendering rules.
+3. **Validate** - Check structure and references.
+4. **Render** - Generate PDF output.
+5. **Bundle** - Combine multiple pages/chapters.
 
 ---
 
